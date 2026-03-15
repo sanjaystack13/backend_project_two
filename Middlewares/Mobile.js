@@ -53,7 +53,9 @@ console.log(otps[number])
 
   try {
     if (otp == otps[number]) {
+      // OTP verification failed
       console.log('OTP verified successfully!');
+    // Return a success message, the created user, and the token
     return res.status(200).json({ message: 'User verified' });
     }
     console.error('OTP verification failed');
