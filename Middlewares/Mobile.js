@@ -34,7 +34,7 @@ console.log(otp)
   // Send SMS using Nettyfish API
   axios.get(parameters)
     .then(response => {
-      console.log('SMS sent successfully:', response.data);
+      console.log('SMS sent successfully Inserted:', response.data);
       res.status(200).json({ message: 'OTP sent successfully',Number : number });
     })
     .catch(error => {
@@ -52,18 +52,14 @@ console.log(otps[number])
 
 
   try {
-    // Check if the OTP matches the one stored for the phone number
     if (otp == otps[number]) {
-      // OTP verification failed
       console.log('OTP verified successfully!');
-    // Return a success message, the created user, and the token
     return res.status(200).json({ message: 'User verified' });
     }
     console.error('OTP verification failed');
     return res.status(400).json({ error: 'OTP verification failed' });
     
   } catch (error) {
-    // If an error occurs during user creation, return a 500 status code and the error message
     console.error('Error during user creation:', error);
     return res.status(500).json({ message: error.message });
   }
